@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import TodoEdit from "./TodoEdit";
 
 export default function TodoList() {
@@ -6,7 +7,7 @@ export default function TodoList() {
 
   const getTodos = async () => {
     try {
-      const res = await fetch("http://localhost:5000/todos");
+      const res = await fetch("/todos");
       const json = await res.json();
       setTodos(json);
     } catch (err) {
@@ -16,7 +17,7 @@ export default function TodoList() {
 
   const deleteTodo = async (id) => {
     try {
-      await fetch(`http://localhost:5000/todos/${id}`, {
+      await fetch(`/todos/${id}`, {
         method: "DELETE",
       });
 
